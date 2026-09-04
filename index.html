@@ -2,8 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
   <title>PeerNest — Coming Soon</title>
+
+  <meta
+    name="description"
+    content="PeerNest is currently under construction. Something exciting is on the way."
+  />
 
   <style>
     * {
@@ -12,30 +20,83 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
-      min-height: 85%;
-      background: #f6f1e8;
+      min-height: 100%;
+      background: #f5f0e7;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
     }
 
     body {
       display: flex;
       justify-content: center;
       align-items: flex-start;
+      background: #f5f0e7;
     }
 
-    img {
+    .coming-soon {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px 16px;
+      background: #f5f0e7;
+    }
+
+    .image-frame {
+      width: 82%;
+      max-width: 1350px;
+    }
+
+    .image-frame picture,
+    .image-frame img {
       display: block;
-      width: 90%;
-      height: 70%;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 1024px) {
+      .image-frame {
+        width: 92%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .coming-soon {
+        padding: 0;
+      }
+
+      .image-frame {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .image-frame picture,
+      .image-frame img {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
 
 <body>
-  <img
-    src="coming-soon.png"
-    alt="PeerNest website coming soon"
-  />
+  <main class="coming-soon">
+    <div class="image-frame">
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="./coming-soon-mobile.png"
+        />
+        <img
+          src="./coming-soon-desktop.png"
+          alt="PeerNest website is currently under construction"
+        />
+      </picture>
+    </div>
+  </main>
 </body>
 </html>
