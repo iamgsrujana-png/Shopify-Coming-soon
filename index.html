@@ -50,64 +50,89 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
+      overflow: hidden;
     }
 
     .desktop-image,
     .mobile-image {
       display: block;
-      width: 100%;
       height: auto;
     }
 
-    /* ---------------- DESKTOP ---------------- */
-
-    .image-wrapper {
-      width: 82%;
-      max-width: 1350px;
-    }
+    /* ======================================
+       DESKTOP
+       ====================================== */
 
     .page {
-      padding: 24px 16px;
+      padding: 18px 14px;
+    }
+
+    .image-wrapper {
+      width: 96%;
+      max-width: 1700px;
+    }
+
+    .desktop-image {
+      display: block;
+      width: 100%;
     }
 
     .mobile-image {
       display: none;
     }
 
-    .desktop-image {
-      display: block;
-    }
+    /* LARGE DESKTOP */
 
-    /* ---------------- TABLET ---------------- */
-
-    @media (max-width: 1100px) and (min-width: 769px) {
+    @media (min-width: 1500px) {
       .image-wrapper {
         width: 94%;
+        max-width: 1800px;
       }
     }
 
-    /* ---------------- MOBILE ---------------- */
+    /* TABLET */
+
+    @media (max-width: 1100px) and (min-width: 769px) {
+      .page {
+        padding: 12px;
+      }
+
+      .image-wrapper {
+        width: 98%;
+      }
+    }
+
+    /* ======================================
+       MOBILE
+       ====================================== */
 
     @media (max-width: 768px) {
 
       html,
       body {
         width: 100%;
-        min-height: 100vh;
+        min-height: 100%;
         background: #f6f0e8;
       }
 
       .page {
         width: 100%;
-        min-height: 100vh;
+        min-height: 100svh;
+
         padding: 0;
+
         display: block;
+
+        overflow: hidden;
       }
 
       .image-wrapper {
         width: 100%;
         max-width: none;
+
         display: block;
+
+        overflow: hidden;
       }
 
       .desktop-image {
@@ -116,10 +141,34 @@
 
       .mobile-image {
         display: block;
-        width: 100%;
+
+        /*
+          Slightly wider than the viewport.
+          Because the image keeps its aspect ratio,
+          this also makes it slightly taller.
+        */
+
+        width: 108%;
+        max-width: none;
         height: auto;
+
+        margin-left: -4%;
+
+        object-fit: contain;
+        object-position: top center;
       }
     }
+
+    /* SMALLER PHONES */
+
+    @media (max-width: 430px) {
+
+      .mobile-image {
+        width: 110%;
+        margin-left: -5%;
+      }
+    }
+
   </style>
 </head>
 
@@ -129,21 +178,21 @@
 
     <div class="image-wrapper">
 
-      <!-- DESKTOP -->
+      <!-- DESKTOP IMAGE -->
       <img
         class="desktop-image"
-        src="/coming-soon.png?v=3"
+        src="/coming-soon.png?v=4"
         alt="PeerNest website is under construction"
         fetchpriority="high"
       />
 
-      <!-- MOBILE -->
+      <!-- MOBILE IMAGE -->
       <img
         class="mobile-image"
-        src="/peernest_campus_coming_soon.png?v=3"
+        src="/peernest_campus_coming_soon.png?v=4"
         alt="PeerNest website is under construction"
         fetchpriority="high"
-        onerror="this.src='/coming-soon.png?v=3'"
+        onerror="this.src='/coming-soon.png?v=4'"
       />
 
     </div>
