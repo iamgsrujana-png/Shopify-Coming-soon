@@ -38,56 +38,58 @@
     .page {
       width: 100%;
       min-height: 100vh;
-      background: #f6f0e8;
+
       display: flex;
       justify-content: center;
       align-items: flex-start;
+
+      background: #f6f0e8;
     }
 
     .image-wrapper {
-      width: 100%;
       display: flex;
       justify-content: center;
       align-items: flex-start;
     }
 
-    picture {
-      display: block;
-      width: 100%;
-    }
-
-    img {
+    .desktop-image,
+    .mobile-image {
       display: block;
       width: 100%;
       height: auto;
     }
 
-    /* DESKTOP */
-    @media (min-width: 769px) {
-      .page {
-        padding: 24px 16px;
-      }
+    /* ---------------- DESKTOP ---------------- */
 
-      .image-wrapper {
-        width: 82%;
-        max-width: 1350px;
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-      }
+    .image-wrapper {
+      width: 82%;
+      max-width: 1350px;
     }
 
-    /* TABLET */
-    @media (min-width: 769px) and (max-width: 1100px) {
+    .page {
+      padding: 24px 16px;
+    }
+
+    .mobile-image {
+      display: none;
+    }
+
+    .desktop-image {
+      display: block;
+    }
+
+    /* ---------------- TABLET ---------------- */
+
+    @media (max-width: 1100px) and (min-width: 769px) {
       .image-wrapper {
         width: 94%;
       }
     }
 
-    /* MOBILE */
+    /* ---------------- MOBILE ---------------- */
+
     @media (max-width: 768px) {
+
       html,
       body {
         width: 100%;
@@ -108,15 +110,14 @@
         display: block;
       }
 
-      picture {
-        width: 100%;
-        display: block;
+      .desktop-image {
+        display: none;
       }
 
-      img {
+      .mobile-image {
+        display: block;
         width: 100%;
         height: auto;
-        display: block;
       }
     }
   </style>
@@ -125,26 +126,28 @@
 <body>
 
   <main class="page">
+
     <div class="image-wrapper">
 
-      <picture>
+      <!-- DESKTOP -->
+      <img
+        class="desktop-image"
+        src="/coming-soon.png?v=3"
+        alt="PeerNest website is under construction"
+        fetchpriority="high"
+      />
 
-        <!-- MOBILE IMAGE -->
-        <source
-          media="(max-width: 768px)"
-          srcset="./peernest_campus_coming_soon.png"
-        />
-
-        <!-- DESKTOP IMAGE -->
-        <img
-          src="./coming-soon.png"
-          alt="PeerNest website is under construction"
-          fetchpriority="high"
-        />
-
-      </picture>
+      <!-- MOBILE -->
+      <img
+        class="mobile-image"
+        src="/peernest_campus_coming_soon.png?v=3"
+        alt="PeerNest website is under construction"
+        fetchpriority="high"
+        onerror="this.src='/coming-soon.png?v=3'"
+      />
 
     </div>
+
   </main>
 
 </body>
