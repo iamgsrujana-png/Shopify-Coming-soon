@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   />
+
   <title>PeerNest — Coming Soon</title>
 
   <meta
     name="description"
-    content="PeerNest is currently under construction. Something exciting is on the way."
+    content="PeerNest is under construction. We're building a student-first platform for college discovery, mentorship, events and communities."
   />
+
+  <meta name="theme-color" content="#f6f0e8" />
 
   <style>
     * {
@@ -24,79 +28,124 @@
     body {
       width: 100%;
       min-height: 100%;
-      background: #f5f0e7;
-      overflow-x: hidden;
-      font-family: Arial, sans-serif;
+      background: #f6f0e8;
     }
 
     body {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background: #f5f0e7;
+      overflow-x: hidden;
     }
 
-    .coming-soon {
+    .page {
       width: 100%;
       min-height: 100vh;
+      background: #f6f0e8;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 24px 16px;
-      background: #f5f0e7;
     }
 
-    .image-frame {
-      width: 82%;
-      max-width: 1350px;
+    .image-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
 
-    .image-frame picture,
-    .image-frame img {
+    picture {
+      display: block;
+      width: 100%;
+    }
+
+    img {
       display: block;
       width: 100%;
       height: auto;
     }
 
-    @media (max-width: 1024px) {
-      .image-frame {
-        width: 92%;
+    /* DESKTOP */
+    @media (min-width: 769px) {
+      .page {
+        padding: 24px 16px;
+      }
+
+      .image-wrapper {
+        width: 82%;
+        max-width: 1350px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
       }
     }
 
+    /* TABLET */
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .image-wrapper {
+        width: 94%;
+      }
+    }
+
+    /* MOBILE */
     @media (max-width: 768px) {
-      .coming-soon {
-        padding: 0;
-      }
-
-      .image-frame {
+      html,
+      body {
         width: 100%;
-        max-width: 100%;
+        min-height: 100vh;
+        background: #f6f0e8;
       }
 
-      .image-frame picture,
-      .image-frame img {
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        padding: 0;
+        display: block;
+      }
+
+      .image-wrapper {
+        width: 100%;
+        max-width: none;
+        display: block;
+      }
+
+      picture {
+        width: 100%;
+        display: block;
+      }
+
+      img {
         width: 100%;
         height: auto;
+        display: block;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="coming-soon">
-    <div class="image-frame">
+
+  <main class="page">
+    <div class="image-wrapper">
+
       <picture>
+
+        <!-- MOBILE IMAGE -->
         <source
           media="(max-width: 768px)"
-          srcset="./coming-soon-mobile.png"
+          srcset="./peernest_campus_coming_soon.png"
         />
+
+        <!-- DESKTOP IMAGE -->
         <img
-          src="./coming-soon-desktop.png"
-          alt="PeerNest website is currently under construction"
+          src="./coming-soon.png"
+          alt="PeerNest website is under construction"
+          fetchpriority="high"
         />
+
       </picture>
+
     </div>
   </main>
+
 </body>
 </html>
